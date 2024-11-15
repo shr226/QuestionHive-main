@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useAuth, ClerkLoaded, ClerkLoading } from '@clerk/clerk-react';
 import ExamManagementLandingPage from './components/pages/LandingPage';
@@ -29,7 +29,7 @@ function App() {
     <>
     <ClerkLoading>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-              <div className="text-xl font-semibold text-gray-700">Loading...</div>
+              <div className="text-xl font-semibold text-gray-700">Question Hive Powered by <img className='w-50 h-60' src="./watermark.jpeg" /></div>
       </div>
     </ClerkLoading>
     <ClerkLoaded>

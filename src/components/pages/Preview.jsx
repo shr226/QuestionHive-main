@@ -44,10 +44,27 @@ const styles = StyleSheet.create({
   },
 });
 
-// PDF Document Component
+// PDF Document Component with Watermark on Every Page
 const PDFDocument = ({ questions, layout, showAnswers, formData }) => (
   <Document>
     <Page size="A4" style={styles.page}>
+      {/* Watermark on every page */}
+      {formData.watermark && (
+        <Text
+          style={{
+            position: 'absolute',
+            fontSize: 48,
+            color: 'rgba(0, 0, 0, 0.1)',
+            transform: 'rotate(-45deg)',
+            left: '30%',
+            top: '40%',
+            zIndex: -1,
+          }}
+        >
+          {formData.watermark}
+        </Text>
+      )}
+
       {/* Header */}
       <View style={{ marginBottom: 20 }}>
         <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center' }}>
@@ -83,6 +100,7 @@ const PDFDocument = ({ questions, layout, showAnswers, formData }) => (
     </Page>
   </Document>
 );
+
 
 // Preview Component
 const Preview = () => {

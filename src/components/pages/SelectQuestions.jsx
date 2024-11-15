@@ -124,11 +124,16 @@ function SelectQuestions() {
       }
     });
   };
-
-
   const handleCartClick = () => {
-    navigate('/addedQuestions', { state: { selectedQuestions } });
+    if (selectedQuestions.length <= 7) {
+      // Allow free download for 7 or fewer questions
+      navigate('/addedQuestions', { state: { selectedQuestions } });
+    } else {
+      // Redirect to payment page if more than 7 questions are selected
+      navigate('/payment', { state: { selectedQuestions } });
+    }
   };
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
